@@ -28,6 +28,8 @@ class BarcodeGeneratorImagick extends BarcodeGenerator
         $png->newImage($width, $height, 'none', 'png');
         $imageMagickObject = new \imagickdraw();
         $imageMagickObject->setFillColor($colorForeground);
+        $imageMagickObject->setStrokeAntialias(false);
+        $imageMagickObject->setStrokeColor('rgb(255,255,255)');
 
         // print bars
         $positionHorizontal = 0;
