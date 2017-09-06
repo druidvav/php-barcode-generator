@@ -9,7 +9,7 @@ It creates SVG, PNG, JPG and HTML images, from the most used 1D barcode standard
 Install through [composer](https://getcomposer.org/doc/00-intro.md):
 
 ```
-composer require picqer/php-barcode-generator
+composer require druidvav/php-barcode-generator
 ```
 
 ## Usage

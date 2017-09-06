@@ -46,4 +46,22 @@ class BarcodeGeneratorSVG extends BarcodeGenerator
 
         return $svg;
     }
+
+    public function getBarcodeFragment($code, $type, $config)
+    {
+        $barcodeData = $this->getBarcodeData($code, $type);
+
+        $svg = "";
+        $positionHorizontal = $config['left'];
+        foreach ($barcodeData['bars'] as $bar) {
+            $barWidth = round(($bar['width'] * $config['width'] / $barcodeData['maxWidth']), 3);
+            $barHeight = round(($bar['height'] * $config['height'] / $barcodeData['maxHeight']), 3);
+            if ($bar['drawBar']) {
+                $positionVertical = $config['top'] + round(($bar['positionVertical'] * $config['height'] / $barcodeData['maxHeight']), 3);
+                $svg .= "\t\t" . '<rect x="' . $positionHorizontal . '" y="' . $positionVertical . '" width="' . $barWidth . '" height="' . $barHeight . '" />' . "\n";
+            }
+            $positionHorizontal += $barWidth;
+        }
+        return $svg;
+    }
 }
