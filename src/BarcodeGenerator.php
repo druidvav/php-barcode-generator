@@ -2849,4 +2849,10 @@ abstract class BarcodeGenerator
 
         return $newBarcodeArray;
     }
+
+    public function getBarcodeCode($code, $type)
+    {
+        $barcodeData = $this->getBarcodeData($code, $type);
+        return $barcodeData['code'];
+    }
 }
